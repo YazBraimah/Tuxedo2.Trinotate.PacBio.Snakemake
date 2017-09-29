@@ -1,0 +1,19 @@
+# Path to genome and annotation file.
+DNA: '/home/ya76/Platinum_Genomes/GENOMES/Dnov/DnovPacBio.fa'
+INDEX: '/home/ya76/Platinum_Genomes/GENOMES/Dnov/index/hisat2'
+
+# Path to basic folders.
+OUT_DIR: '/fs/cbsufsrv5/data1/ya76/Snakemake.Output.Folders/PacBio.NM14.Trinotate.Snakemake'
+HOME_DIR: '/home/ya76/GitHub_Repositories/Trinotate.PacBio.NM14.snakemake'
+WORK_DIR: '/workdir'
+
+# Path to database files and Trinotate home directory.
+SHARED_DATABASE: '/shared_data/misc/TRINOTATE_RESOURCES/20160324/'
+CUSTOM_DATABASE: '/home/ya76/virilis_group_data/dvir-1.06-v2/dvir-proteins-r1.06-v2.fasta'
+TRINOTATE_HOME: '/programs/Trinotate-3.0.0'
+SQLITE: '/home/ya76/Trinotate/Trinotate.sqlite'
+
+# Path to a JSON file with samples and their corresponding FASTQ files.
+PE_SAMPLES_JSON: '/home/ya76/GitHub_Repositories/PacBio.NM14.RNAseq.Snakemake/samples_pe.json'
+SE_SAMPLES_JSON: '/home/ya76/GitHub_Repositories/PacBio.NM14.RNAseq.Snakemake/samples_se.json'
+
