@@ -1,8 +1,6 @@
 """
 Author: Y. Ahmed-Braimah
---- RNA-seq snakemake workflow: Use to map reads to genome without
-___ pre-existing annotation (New PacBio genomes).
-
+--- Tuxedo2/Trinotate snakemake workflow
 """
 
 import json
@@ -33,25 +31,26 @@ def rstrip(text, suffix):
 
 configfile: 'config.yml'
 
-# Full path to an uncompressed FASTA file with all chromosome sequences.
+# genome file and hisat2 index
 DNA = config['DNA']
 INDEX = config['INDEX']
 
-# Full path to a folder where final output files will be deposited.
+# final output folder and working directory
 OUT_DIR = config['OUT_DIR']
 WORK_DIR = config['WORK_DIR']
 HOME_DIR = config['HOME_DIR']  # the "launch_snakemake.sh" and "config.yml" files should be here
 
+# files/paths required for Trinotate
 SHARED_DATABASE = config['SHARED_DATABASE']
 CUSTOM_DATABASE = config['CUSTOM_DATABASE']
 TRINOTATE_HOME = config['TRINOTATE_HOME']
 SQLITE = config['SQLITE']
 
-## set the usr and job environments for each job (specific for CBSU qsub jobs)
+## set the user and job environments for each job (specific for CBSU qsub jobs)
 USER = os.environ.get('USER')
 JOB_ID = os.environ.get('JOB_ID')
 
-# Samples and their corresponding filenames.
+# samples and their corresponding filenames.
 # single-end
 seFILES = json.load(open(config['SE_SAMPLES_JSON'])) 
 seSAMPLES = sorted(seFILES.keys())                  
@@ -59,8 +58,7 @@ seSAMPLES = sorted(seFILES.keys())
 peFILES = json.load(open(config['PE_SAMPLES_JSON'])) 
 peSAMPLES = sorted(peFILES.keys())           
 
-# read both
-# FILES = json.load(open(config['SAMPLES_JSON']))
+# all samples
 combinedSam = [peSAMPLES, seSAMPLES]
 SAMPLES = [y for x in combinedSam for y in x]  
 
@@ -72,7 +70,7 @@ if not os.path.exists(OUT_DIR):
 ## RULES
 ##--------------------------------------------------------------------------------------##
 
-## Final expected output(s)
+## Final output(s)
 rule all: 
     input: 
         join(OUT_DIR, 'MultiQC', 'multiqc_report.html'),
@@ -85,7 +83,7 @@ rule all:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
-## Rule to check raw SE read quality
+## check raw SE read quality with fastQC
 rule fastqcSE:
     input:
         r1 = lambda wildcards: seFILES[wildcards.sample]['R1']
@@ -112,7 +110,7 @@ rule fastqcSE:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
-## Rule to check raw PE read quality
+## check raw PE read quality with fastQC
 rule fastqcPE:
     input:
         r1 = lambda wildcards: peFILES[wildcards.sample]['R1'],
@@ -141,7 +139,7 @@ rule fastqcPE:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
-## Rule to map PE reads with HISAT2
+## map SE reads with HISAT2
 rule hisat2_se_mapping:
     input:
         r1 = lambda wildcards: seFILES[wildcards.sample]['R1']
@@ -171,7 +169,7 @@ rule hisat2_se_mapping:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
-## Rule to check raw PE read quality
+## map PE reads with HISAT2
 rule hisat2_pe_mapping:
     input:
         r1 = lambda wildcards: peFILES[wildcards.sample]['R1'],
@@ -204,7 +202,7 @@ rule hisat2_pe_mapping:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
-## Rule to assemble transcripts with StringTie
+## assemble transcripts with StringTie
 rule stringtie_assembly:
     input:
         bam = join(OUT_DIR, 'HISAT-2', '{sample}', '{sample}' + '.csorted.bowtie2.bam')
@@ -231,7 +229,7 @@ rule stringtie_assembly:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
-## Rule to merge StringTie assemblies
+## merge StringTie assemblies
 rule merge_assemblies:
     input:
         assemblies = expand(join(OUT_DIR, 'StringTie', '{sample}', '{sample}' + '.gtf'), sample = SAMPLES)
@@ -257,7 +255,7 @@ rule merge_assemblies:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
-## Rule to measure transcript abundances with Stringtie
+## measure transcript abundances with Stringtie
 rule abundances:
     input:
         bam = join(OUT_DIR, 'HISAT-2', '{sample}', '{sample}' + '.csorted.bowtie2.bam'),
@@ -286,7 +284,7 @@ rule abundances:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
-## Rule to combine abundance counts for downstream analysis
+## combine abundance counts for downstream analysis
 rule collate_counts:
     input:
         abundances = expand(join(OUT_DIR, 'ballgown', '{sample}', '{sample}' + '_abundance.gtf'), sample = SAMPLES)
@@ -304,7 +302,7 @@ rule collate_counts:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
-## Rule to collate fastQC and HISAT2 outputs with multiQC
+## combine fastQC and HISAT2 log outputs with multiQC
 rule multiQC:
     input:
         expand(join(OUT_DIR, 'HISAT-2', '{sample}', '{sample}' + '.csorted.bowtie2.bam'), sample = SAMPLES),
@@ -329,6 +327,7 @@ rule multiQC:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## extract transcriptome sequences from the genome using the StringTie assembly
 rule gffread_exons:
     input:
         gtf = rules.merge_assemblies.output.asmbly,
@@ -351,6 +350,7 @@ rule gffread_exons:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## predict long ORFs with TransDecoder
 rule Transdecoder_LongOrfs:
     input:
         exons = rules.gffread_exons.output.exons
@@ -375,6 +375,7 @@ rule Transdecoder_LongOrfs:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## protein blast initial long ORFs against UniProt database
 rule BLASTp_init:
     input:
         longOrfs = rules.Transdecoder_LongOrfs.output.longOrfs
@@ -396,6 +397,7 @@ rule BLASTp_init:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## search initial long ORFs against Pfam rotein domains using HMMER
 rule Pfam_init:
     input:
         longOrfs = rules.Transdecoder_LongOrfs.output.longOrfs
@@ -419,6 +421,7 @@ rule Pfam_init:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## integrate the Blast and Pfam search results into coding region selection
 rule Transdecoder_Predict:
     input:
         exons = rules.gffread_exons.output.exons,
@@ -448,6 +451,7 @@ rule Transdecoder_Predict:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## map ORF coordinates to the genome and create new GTF file
 rule ORF_mapping_to_genome:
     input:
         TransGff3 = rules.Transdecoder_Predict.output.TransGff3,
@@ -474,6 +478,7 @@ rule ORF_mapping_to_genome:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## blast transcripts to UniProt database
 rule BLASTx:
     input:
         exons = rules.gffread_exons.output.exons
@@ -497,6 +502,7 @@ rule BLASTx:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## blast proteins to UniProt database
 rule BLASTp:
     input:
         peptides = rules.Transdecoder_Predict.output.peptides
@@ -520,6 +526,7 @@ rule BLASTp:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## blast transcripts to custom database
 rule custom_BLASTx:
     input:
         exons = rules.gffread_exons.output.exons
@@ -545,6 +552,7 @@ rule custom_BLASTx:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## blast proteins to custom database
 rule custom_BLASTp:
     input:
         peptides = rules.Transdecoder_Predict.output.peptides
@@ -570,6 +578,7 @@ rule custom_BLASTp:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## run Pfam
 rule Pfam:
     input:
         peptides = rules.Transdecoder_Predict.output.peptides
@@ -594,6 +603,7 @@ rule Pfam:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## Identify signal peptides with SignalP
 rule signalP:
     input:
         peptides = rules.Transdecoder_Predict.output.peptides
@@ -617,6 +627,7 @@ rule signalP:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## predict transmembrane domains with TMHMM
 rule TMHMM:
     input:
         peptides = rules.Transdecoder_Predict.output.peptides
@@ -638,6 +649,7 @@ rule TMHMM:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## identify rRNA loci with RNAmmer
 rule RNAmmer:
     input:
         exons = rules.gffread_exons.output.exons
@@ -660,6 +672,7 @@ rule RNAmmer:
 ##--------------------------------------------------------------------------------------##
 ##--------------------------------------------------------------------------------------##
 
+## populate SQLite database with all annotation data
 rule Trinotate:
     input:
         exons = rules.gffread_exons.output.exons,
@@ -693,7 +706,7 @@ rule Trinotate:
                 ' --transcript_fasta ' + 'stringtie_merged.gtf' + '_' + rstrip(os.path.basename(DNA), '.fa') + '_exons.fa'
                 ' --transdecoder_pep ' + 'stringtie_merged.gtf' + '_' + rstrip(os.path.basename(DNA), '.fa') + '_exons.fa' + '.transdecoder.pep'
                 ' && Trinotate Trinotate.sqlite LOAD_swissprot_blastp {input.blastP}'
-                ' && Trinotate Trinotate.sqlite LOAD_swissprot_blastx {input.cBlastX}'
+                ' && Trinotate Trinotate.sqlite LOAD_swissprot_blastx {input.BlastX}'
                 ' && Trinotate Trinotate.sqlite LOAD_custom_blast --outfmt6 {input.cBlastP} --prog blastp --dbtype ' + os.path.basename(CUSTOM_DATABASE) +
                 ' && Trinotate Trinotate.sqlite LOAD_custom_blast --outfmt6 {input.cBlastX} --prog blastx --dbtype ' + os.path.basename(CUSTOM_DATABASE) +
                 ' && Trinotate Trinotate.sqlite LOAD_pfam {input.pfam}'
