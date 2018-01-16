@@ -1,0 +1,212 @@
+{
+    "Female_abdomen_without_digestive_or_reproductive_system_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_abdomen_without_digestive_or_reproductive_system_1.R1.fq.gz"
+        ]
+    },
+    "Female_abdomen_without_digestive_or_reproductive_system_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_abdomen_without_digestive_or_reproductive_system_2.R1.fq.gz"
+        ]
+    },
+    "Female_abdomen_without_digestive_or_reproductive_system_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_abdomen_without_digestive_or_reproductive_system_3.R1.fq.gz"
+        ]
+    },
+    "Female_digestive_plus_excretory_system_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_digestive_plus_excretory_system_1.R1.fq.gz"
+        ]
+    },
+    "Female_digestive_plus_excretory_system_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_digestive_plus_excretory_system_2.R1.fq.gz"
+        ]
+    },
+    "Female_digestive_plus_excretory_system_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_digestive_plus_excretory_system_3.R1.fq.gz"
+        ]
+    },
+    "Female_gonad_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_gonad_1.R1.fq.gz"
+        ]
+    },
+    "Female_gonad_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_gonad_2.R1.fq.gz"
+        ]
+    },
+    "Female_gonad_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_gonad_3.R1.fq.gz"
+        ]
+    },
+    "Female_head_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_head_1.R1.fq.gz"
+        ]
+    },
+    "Female_head_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_head_2.R1.fq.gz"
+        ]
+    },
+    "Female_head_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_head_3.R1.fq.gz"
+        ]
+    },
+    "Female_reproductive_system_without_gonad_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_reproductive_system_without_gonad_1.R1.fq.gz"
+        ]
+    },
+    "Female_reproductive_system_without_gonad_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_reproductive_system_without_gonad_2.R1.fq.gz"
+        ]
+    },
+    "Female_reproductive_system_without_gonad_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_reproductive_system_without_gonad_3.R1.fq.gz"
+        ]
+    },
+    "Female_thorax_without_digestive_system_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_thorax_without_digestive_system_1.R1.fq.gz"
+        ]
+    },
+    "Female_thorax_without_digestive_system_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_thorax_without_digestive_system_2.R1.fq.gz"
+        ]
+    },
+    "Female_thorax_without_digestive_system_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_thorax_without_digestive_system_3.R1.fq.gz"
+        ]
+    },
+    "Female_whole_body_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_whole_body_1.R1.fq.gz"
+        ]
+    },
+    "Female_whole_body_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_whole_body_2.R1.fq.gz"
+        ]
+    },
+    "Female_whole_body_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Female_whole_body_3.R1.fq.gz"
+        ]
+    },
+    "Male_abdomen_without_digestive_or_reproductive_system_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_abdomen_without_digestive_or_reproductive_system_1.R1.fq.gz"
+        ]
+    },
+    "Male_abdomen_without_digestive_or_reproductive_system_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_abdomen_without_digestive_or_reproductive_system_2.R1.fq.gz"
+        ]
+    },
+    "Male_abdomen_without_digestive_or_reproductive_system_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_abdomen_without_digestive_or_reproductive_system_3.R1.fq.gz"
+        ]
+    },
+    "Male_digestive_plus_excretory_system_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_digestive_plus_excretory_system_1.R1.fq.gz"
+        ]
+    },
+    "Male_digestive_plus_excretory_system_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_digestive_plus_excretory_system_2.R1.fq.gz"
+        ]
+    },
+    "Male_digestive_plus_excretory_system_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_digestive_plus_excretory_system_3.R1.fq.gz"
+        ]
+    },
+    "Male_gonad_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_gonad_1.R1.fq.gz"
+        ]
+    },
+    "Male_gonad_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_gonad_2.R1.fq.gz"
+        ]
+    },
+    "Male_gonad_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_gonad_3.R1.fq.gz"
+        ]
+    },
+    "Male_head_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_head_1.R1.fq.gz"
+        ]
+    },
+    "Male_head_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_head_2.R1.fq.gz"
+        ]
+    },
+    "Male_head_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_head_3.R1.fq.gz"
+        ]
+    },
+    "Male_reproductive_system_without_gonad_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_reproductive_system_without_gonad_1.R1.fq.gz"
+        ]
+    },
+    "Male_reproductive_system_without_gonad_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_reproductive_system_without_gonad_2.R1.fq.gz"
+        ]
+    },
+    "Male_reproductive_system_without_gonad_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_reproductive_system_without_gonad_3.R1.fq.gz"
+        ]
+    },
+    "Male_thorax_without_digestive_system_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_thorax_without_digestive_system_1.R1.fq.gz"
+        ]
+    },
+    "Male_thorax_without_digestive_system_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_thorax_without_digestive_system_2.R1.fq.gz"
+        ]
+    },
+    "Male_thorax_without_digestive_system_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_thorax_without_digestive_system_3.R1.fq.gz"
+        ]
+    },
+    "Male_whole_body_1": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_whole_body_1.R1.fq.gz"
+        ]
+    },
+    "Male_whole_body_2": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_whole_body_2.R1.fq.gz"
+        ]
+    },
+    "Male_whole_body_3": {
+        "R1": [
+            "/fs/cbsufsrv5/data1/ya76/ananassae_RNAseq_reads/SRA/Male_whole_body_3.R1.fq.gz"
+        ]
+    }
+}

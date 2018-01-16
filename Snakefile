@@ -4,6 +4,7 @@ Author: Y. Ahmed-Braimah
 """
 
 import json
+import psutil
 import os
 from os.path import join, basename, dirname
 from os import getcwd
