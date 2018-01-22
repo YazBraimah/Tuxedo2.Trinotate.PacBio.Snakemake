@@ -3,7 +3,7 @@ DNA: '/home/ya76/Platinum_Genomes/GENOMES/D.ananassae/DanaPacBio.fa'
 INDEX: '/home/ya76/Platinum_Genomes/GENOMES/D.ananassae/index/hisat2'
 
 # Path to basic folders.
-OUT_DIR: '/fs/cbsufsrv5/data1/ya76/Snakemake.Output.Folders/PacBio.Dana.Trinotate.Snakemake'
+OUT_DIR: '/fs/cbsufsrv5/data2/ya76/D_ananassae_Tuxedo_Trinotate_Snakemake'
 HOME_DIR: '/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake'
 WORK_DIR: '/workdir'
 

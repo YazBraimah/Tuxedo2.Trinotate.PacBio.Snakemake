@@ -1,6 +1,6 @@
 {
     "__default__": {
-        "q"         : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+        "q"         : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "sm.def",
         "cores"     : 4,
@@ -9,7 +9,7 @@
         "time"      : "03:00:00"
     },
     "fastqcSE": {
-        "q"         : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+        "q"         : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "fastqc_se",
         "cores"     : 4,
@@ -18,7 +18,7 @@
         "time"      : "01:00:00"
     },
     "fastqcPE": {
-        "q"         : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+        "q"         : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "fastqc_pe",
         "cores"     : 4,
@@ -27,7 +27,7 @@
         "time"      : "01:00:00"
     },
     "hisat2_se_mapping": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "hs2.mapSE",
         "cores"     : 8,
@@ -36,7 +36,7 @@
         "time"      : "03:00:00"
     },
     "hisat2_pe_mapping": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "hs2.mapPE",
         "cores"     : 8,
@@ -45,7 +45,7 @@
         "time"      : "03:00:00"
     },
     "stringtie_assembly": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "st.asmbl",
         "cores"     : 8,
@@ -54,7 +54,7 @@
         "time"      : "02:00:00"
     },
     "abundances": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "st.abndns",
         "cores"     : 4,
@@ -63,7 +63,7 @@
         "time"      : "02:00:00"
     },
     "Transdecoder_LongOrfs": {
-        "q"         : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+        "q"         : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "TD_Lorfs",
         "cores"     : 4,
@@ -72,8 +72,7 @@
         "time"      : "12:00:00"
     },
     "BLASTp_init": {
-        "q"         : "long_term.q@cbsubscb01,long_term.q@cbsubscb02,long_term.q@cbsubscb03,long_term.q@cbsubscb04,long_term.q@cbsubscb05,long_term.q@cbsubscb06,long_term.q@cbsubscb07,long_term.q@cbsubscb08,long_term.q@cbsubscb09,long_term.q@cbsubscb10,long_term.q@cbsubscb11,long_term.q@cbsubscb12
-",
+        "q"         : "long_term.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "blastP1",
         "cores"     : 4,
@@ -82,8 +81,7 @@
         "time"      : "120:00:00"
     },
     "Pfam_init": {
-       "q"          : "long_term.q@cbsubscb01,long_term.q@cbsubscb02,long_term.q@cbsubscb03,long_term.q@cbsubscb04,long_term.q@cbsubscb05,long_term.q@cbsubscb06,long_term.q@cbsubscb07,long_term.q@cbsubscb08,long_term.q@cbsubscb09,long_term.q@cbsubscb10,long_term.q@cbsubscb11,long_term.q@cbsubscb12
-",
+       "q"          : "long_term.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "pfam_i",
         "cores"     : 4,
@@ -92,7 +90,7 @@
         "time"      : "120:00:00"
     },
     "Transdecoder_Predict": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "TD_pred",
         "cores"     : 4,
@@ -101,8 +99,7 @@
         "time"      : "12:00:00"
     },
     "BLASTx": {
-       "q"          : "long_term.q@cbsubscb01,long_term.q@cbsubscb02,long_term.q@cbsubscb03,long_term.q@cbsubscb04,long_term.q@cbsubscb05,long_term.q@cbsubscb06,long_term.q@cbsubscb07,long_term.q@cbsubscb08,long_term.q@cbsubscb09,long_term.q@cbsubscb10,long_term.q@cbsubscb11,long_term.q@cbsubscb12
-",
+       "q"          : "long_term.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "blastx",
         "cores"     : 8,
@@ -111,8 +108,7 @@
         "time"      : "120:00:00"
     },
     "BLASTp": {
-       "q"          : "long_term.q@cbsubscb01,long_term.q@cbsubscb02,long_term.q@cbsubscb03,long_term.q@cbsubscb04,long_term.q@cbsubscb05,long_term.q@cbsubscb06,long_term.q@cbsubscb07,long_term.q@cbsubscb08,long_term.q@cbsubscb09,long_term.q@cbsubscb10,long_term.q@cbsubscb11,long_term.q@cbsubscb12
-",
+       "q"          : "long_term.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "blastp",
         "cores"     : 8,
@@ -121,7 +117,7 @@
         "time"      : "120:00:00"
     },
     "custom_BLASTx": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "cblastx",
         "cores"     : 8,
@@ -130,7 +126,7 @@
         "time"      : "24:00:00"
     },
     "custom_BLASTp": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "cblastp",
         "cores"     : 8,
@@ -139,8 +135,7 @@
         "time"      : "24:00:00"
     },
     "Pfam": {
-       "q"          : "long_term.q@cbsubscb01,long_term.q@cbsubscb02,long_term.q@cbsubscb03,long_term.q@cbsubscb04,long_term.q@cbsubscb05,long_term.q@cbsubscb06,long_term.q@cbsubscb07,long_term.q@cbsubscb08,long_term.q@cbsubscb09,long_term.q@cbsubscb10,long_term.q@cbsubscb11,long_term.q@cbsubscb12
-",
+       "q"          : "long_term.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "pfam",
         "cores"     : 8,
@@ -149,7 +144,7 @@
         "time"      : "120:00:00"
     },
     "signalP": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "signalp",
         "cores"     : 4,
@@ -158,8 +153,7 @@
         "time"      : "12:00:00"
     },
     "TMHMM": {
-       "q"          : "long_term.q@cbsubscb01,long_term.q@cbsubscb02,long_term.q@cbsubscb03,long_term.q@cbsubscb04,long_term.q@cbsubscb05,long_term.q@cbsubscb06,long_term.q@cbsubscb07,long_term.q@cbsubscb08,long_term.q@cbsubscb09,long_term.q@cbsubscb10,long_term.q@cbsubscb11,long_term.q@cbsubscb12
-",
+       "q"          : "long_term.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "tmhmm",
         "cores"     : 4,
@@ -168,7 +162,7 @@
         "time"      : "120:00:00"
     },
     "RNAmmer": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "rnammer",
         "cores"     : 4,
@@ -177,7 +171,7 @@
         "time"      : "12:00:00"
     },
     "Trinotate": {
-       "q"          : "regular.q@cbsubscb01,regular.q@cbsubscb02,regular.q@cbsubscb03,regular.q@cbsubscb04,regular.q@cbsubscb05,regular.q@cbsubscb06,regular.q@cbsubscb07,regular.q@cbsubscb08,regular.q@cbsubscb09,regular.q@cbsubscb10,regular.q@cbsubscb11,regular.q@cbsubscb12",
+       "q"          : "regular.q",
         "output"    : "/home/ya76/GitHub_Repositories/Tuxedo2.Trinotate.PacBio.Snakemake/cluster_logs/",
         "jname"     : "trinotate",
         "cores"     : 4,
