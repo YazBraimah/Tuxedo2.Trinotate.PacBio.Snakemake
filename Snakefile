@@ -335,16 +335,16 @@ rule gffread_exons:
         dna = DNA
     output:
         exons = join(OUT_DIR, 'sequences', 'stringtie_merged.gtf' + '_' + rstrip(os.path.basename(DNA), '.fa') + '_exons.fa'),
-        gff3 = join(OUT_DIR, 'sequences', 'stringtie_merged.gtf' + '.gff3')
+        gff3 = join(OUT_DIR, 'sequences', 'stringtie_merged.gtf.gff3')
     message: 
         """--- Extracting exon sequences from the genome using the GTF file """
     run:
         shell('mkdir -p ' + join(WORK_DIR, USER, JOB_ID) +
                 ' && cp {input.gtf} {input.dna} ' + join(WORK_DIR, USER, JOB_ID) +
                 ' && cd ' + join(WORK_DIR, USER, JOB_ID) + 
-                ' && gffread ' + os.path.basename(GTF) + ' -g ' + os.path.basename(DNA) + ' -w ' +
+                ' && gffread stringtie_merged.gtf -g ' + os.path.basename(DNA) + ' -w ' +
                 join('stringtie_merged.gtf' + '_' + rstrip(os.path.basename(DNA), '.fa') + '_exons.fa') +
-                ' && cufflinks_gtf_to_alignment_gff3.pl ' + os.path.basename(GTF) + ' > ' + 'stringtie_merged.gtf' + '.gff3'
+                ' && cufflinks_gtf_to_alignment_gff3.pl stringtie_merged.gtf > stringtie_merged.gtf.gff3'
                 ' && mv ' + join(WORK_DIR, USER, JOB_ID) + '/* ' + join(OUT_DIR, 'sequences'))
         shell('rm -r ' + join(WORK_DIR, USER, JOB_ID))
 
@@ -707,7 +707,7 @@ rule Trinotate:
                 ' --transcript_fasta ' + 'stringtie_merged.gtf' + '_' + rstrip(os.path.basename(DNA), '.fa') + '_exons.fa'
                 ' --transdecoder_pep ' + 'stringtie_merged.gtf' + '_' + rstrip(os.path.basename(DNA), '.fa') + '_exons.fa' + '.transdecoder.pep'
                 ' && Trinotate Trinotate.sqlite LOAD_swissprot_blastp {input.blastP}'
-                ' && Trinotate Trinotate.sqlite LOAD_swissprot_blastx {input.BlastX}'
+                ' && Trinotate Trinotate.sqlite LOAD_swissprot_blastx {input.blastX}'
                 ' && Trinotate Trinotate.sqlite LOAD_custom_blast --outfmt6 {input.cBlastP} --prog blastp --dbtype ' + os.path.basename(CUSTOM_DATABASE) +
                 ' && Trinotate Trinotate.sqlite LOAD_custom_blast --outfmt6 {input.cBlastX} --prog blastx --dbtype ' + os.path.basename(CUSTOM_DATABASE) +
                 ' && Trinotate Trinotate.sqlite LOAD_pfam {input.pfam}'
